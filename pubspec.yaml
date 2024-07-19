@@ -26,6 +26,8 @@ dependencies:
   record: ^4.0.0
   openapi:
     path: ./quiz-auth
+  questions:
+    path: ./questions
   shared_preferences: ^2.2.3
 
 
