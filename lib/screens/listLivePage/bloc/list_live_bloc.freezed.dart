@@ -168,33 +168,45 @@ abstract class _GetAllNews implements ListLiveEvent {
 mixin _$ListLiveState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() loadingState,
+    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function() errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? loadingState,
+    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function()? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? loadingState,
+    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function()? errorState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingState value) loadingState,
+    required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_ErrorState value) errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_ErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingState value)? loadingState,
+    TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -219,35 +231,35 @@ class _$ListLiveStateCopyWithImpl<$Res, $Val extends ListLiveState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$LoadingStateImplCopyWith<$Res> {
+  factory _$$LoadingStateImplCopyWith(
+          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
+      __$$LoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ListLiveStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$LoadingStateImplCopyWithImpl<$Res>
+    extends _$ListLiveStateCopyWithImpl<$Res, _$LoadingStateImpl>
+    implements _$$LoadingStateImplCopyWith<$Res> {
+  __$$LoadingStateImplCopyWithImpl(
+      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$LoadingStateImpl implements _LoadingState {
+  const _$LoadingStateImpl();
 
   @override
   String toString() {
-    return 'ListLiveState.initial()';
+    return 'ListLiveState.loadingState()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
   }
 
   @override
@@ -256,27 +268,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() loadingState,
+    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function() errorState,
   }) {
-    return initial();
+    return loadingState();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? loadingState,
+    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function()? errorState,
   }) {
-    return initial?.call();
+    return loadingState?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? loadingState,
+    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function()? errorState,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (loadingState != null) {
+      return loadingState();
     }
     return orElse();
   }
@@ -284,32 +302,293 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingState value) loadingState,
+    required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_ErrorState value) errorState,
   }) {
-    return initial(this);
+    return loadingState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_ErrorState value)? errorState,
   }) {
-    return initial?.call(this);
+    return loadingState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingState value)? loadingState,
+    TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (loadingState != null) {
+      return loadingState(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements ListLiveState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _LoadingState implements ListLiveState {
+  const factory _LoadingState() = _$LoadingStateImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedStateImplCopyWith<$Res> {
+  factory _$$LoadedStateImplCopyWith(
+          _$LoadedStateImpl value, $Res Function(_$LoadedStateImpl) then) =
+      __$$LoadedStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<LiveModel> listLive});
+}
+
+/// @nodoc
+class __$$LoadedStateImplCopyWithImpl<$Res>
+    extends _$ListLiveStateCopyWithImpl<$Res, _$LoadedStateImpl>
+    implements _$$LoadedStateImplCopyWith<$Res> {
+  __$$LoadedStateImplCopyWithImpl(
+      _$LoadedStateImpl _value, $Res Function(_$LoadedStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? listLive = null,
+  }) {
+    return _then(_$LoadedStateImpl(
+      null == listLive
+          ? _value._listLive
+          : listLive // ignore: cast_nullable_to_non_nullable
+              as List<LiveModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedStateImpl implements _LoadedState {
+  const _$LoadedStateImpl(final List<LiveModel> listLive)
+      : _listLive = listLive;
+
+  final List<LiveModel> _listLive;
+  @override
+  List<LiveModel> get listLive {
+    if (_listLive is EqualUnmodifiableListView) return _listLive;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listLive);
+  }
+
+  @override
+  String toString() {
+    return 'ListLiveState.loadedState(listLive: $listLive)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedStateImpl &&
+            const DeepCollectionEquality().equals(other._listLive, _listLive));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_listLive));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
+      __$$LoadedStateImplCopyWithImpl<_$LoadedStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadingState,
+    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function() errorState,
+  }) {
+    return loadedState(listLive);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadingState,
+    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function()? errorState,
+  }) {
+    return loadedState?.call(listLive);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadingState,
+    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function()? errorState,
+    required TResult orElse(),
+  }) {
+    if (loadedState != null) {
+      return loadedState(listLive);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadingState value) loadingState,
+    required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_ErrorState value) errorState,
+  }) {
+    return loadedState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_ErrorState value)? errorState,
+  }) {
+    return loadedState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadingState value)? loadingState,
+    TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_ErrorState value)? errorState,
+    required TResult orElse(),
+  }) {
+    if (loadedState != null) {
+      return loadedState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedState implements ListLiveState {
+  const factory _LoadedState(final List<LiveModel> listLive) =
+      _$LoadedStateImpl;
+
+  List<LiveModel> get listLive;
+  @JsonKey(ignore: true)
+  _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorStateImplCopyWith<$Res> {
+  factory _$$ErrorStateImplCopyWith(
+          _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
+      __$$ErrorStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorStateImplCopyWithImpl<$Res>
+    extends _$ListLiveStateCopyWithImpl<$Res, _$ErrorStateImpl>
+    implements _$$ErrorStateImplCopyWith<$Res> {
+  __$$ErrorStateImplCopyWithImpl(
+      _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorStateImpl implements _ErrorState {
+  const _$ErrorStateImpl();
+
+  @override
+  String toString() {
+    return 'ListLiveState.errorState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadingState,
+    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function() errorState,
+  }) {
+    return errorState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadingState,
+    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function()? errorState,
+  }) {
+    return errorState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadingState,
+    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function()? errorState,
+    required TResult orElse(),
+  }) {
+    if (errorState != null) {
+      return errorState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadingState value) loadingState,
+    required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_ErrorState value) errorState,
+  }) {
+    return errorState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_ErrorState value)? errorState,
+  }) {
+    return errorState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadingState value)? loadingState,
+    TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_ErrorState value)? errorState,
+    required TResult orElse(),
+  }) {
+    if (errorState != null) {
+      return errorState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorState implements ListLiveState {
+  const factory _ErrorState() = _$ErrorStateImpl;
 }

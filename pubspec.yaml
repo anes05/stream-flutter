@@ -29,6 +29,8 @@ dependencies:
   questions:
     path: ./questions
   shared_preferences: ^2.2.3
+  built_value: ^8.1.3
+  built_collection: ^5.1.1
 
 
 
@@ -44,6 +46,10 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   material_design_icons_flutter:
   image_picker: 0.8.9
+  built_value_generator: ^8.1.3
+
+
+
 flutter:
   uses-material-design: true
   assets:
