@@ -169,21 +169,21 @@ mixin _$ListLiveState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingState,
-    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function(List<LiveModel?> listLive) loadedState,
     required TResult Function() errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingState,
-    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function(List<LiveModel?> listLive)? loadedState,
     TResult? Function()? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingState,
-    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function(List<LiveModel?> listLive)? loadedState,
     TResult Function()? errorState,
     required TResult orElse(),
   }) =>
@@ -269,7 +269,7 @@ class _$LoadingStateImpl implements _LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingState,
-    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function(List<LiveModel?> listLive) loadedState,
     required TResult Function() errorState,
   }) {
     return loadingState();
@@ -279,7 +279,7 @@ class _$LoadingStateImpl implements _LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingState,
-    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function(List<LiveModel?> listLive)? loadedState,
     TResult? Function()? errorState,
   }) {
     return loadingState?.call();
@@ -289,7 +289,7 @@ class _$LoadingStateImpl implements _LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingState,
-    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function(List<LiveModel?> listLive)? loadedState,
     TResult Function()? errorState,
     required TResult orElse(),
   }) {
@@ -344,7 +344,7 @@ abstract class _$$LoadedStateImplCopyWith<$Res> {
           _$LoadedStateImpl value, $Res Function(_$LoadedStateImpl) then) =
       __$$LoadedStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<LiveModel> listLive});
+  $Res call({List<LiveModel?> listLive});
 }
 
 /// @nodoc
@@ -364,7 +364,7 @@ class __$$LoadedStateImplCopyWithImpl<$Res>
       null == listLive
           ? _value._listLive
           : listLive // ignore: cast_nullable_to_non_nullable
-              as List<LiveModel>,
+              as List<LiveModel?>,
     ));
   }
 }
@@ -372,12 +372,12 @@ class __$$LoadedStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedStateImpl implements _LoadedState {
-  const _$LoadedStateImpl(final List<LiveModel> listLive)
+  const _$LoadedStateImpl(final List<LiveModel?> listLive)
       : _listLive = listLive;
 
-  final List<LiveModel> _listLive;
+  final List<LiveModel?> _listLive;
   @override
-  List<LiveModel> get listLive {
+  List<LiveModel?> get listLive {
     if (_listLive is EqualUnmodifiableListView) return _listLive;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listLive);
@@ -410,7 +410,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingState,
-    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function(List<LiveModel?> listLive) loadedState,
     required TResult Function() errorState,
   }) {
     return loadedState(listLive);
@@ -420,7 +420,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingState,
-    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function(List<LiveModel?> listLive)? loadedState,
     TResult? Function()? errorState,
   }) {
     return loadedState?.call(listLive);
@@ -430,7 +430,7 @@ class _$LoadedStateImpl implements _LoadedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingState,
-    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function(List<LiveModel?> listLive)? loadedState,
     TResult Function()? errorState,
     required TResult orElse(),
   }) {
@@ -476,10 +476,10 @@ class _$LoadedStateImpl implements _LoadedState {
 }
 
 abstract class _LoadedState implements ListLiveState {
-  const factory _LoadedState(final List<LiveModel> listLive) =
+  const factory _LoadedState(final List<LiveModel?> listLive) =
       _$LoadedStateImpl;
 
-  List<LiveModel> get listLive;
+  List<LiveModel?> get listLive;
   @JsonKey(ignore: true)
   _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -524,7 +524,7 @@ class _$ErrorStateImpl implements _ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadingState,
-    required TResult Function(List<LiveModel> listLive) loadedState,
+    required TResult Function(List<LiveModel?> listLive) loadedState,
     required TResult Function() errorState,
   }) {
     return errorState();
@@ -534,7 +534,7 @@ class _$ErrorStateImpl implements _ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingState,
-    TResult? Function(List<LiveModel> listLive)? loadedState,
+    TResult? Function(List<LiveModel?> listLive)? loadedState,
     TResult? Function()? errorState,
   }) {
     return errorState?.call();
@@ -544,7 +544,7 @@ class _$ErrorStateImpl implements _ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingState,
-    TResult Function(List<LiveModel> listLive)? loadedState,
+    TResult Function(List<LiveModel?> listLive)? loadedState,
     TResult Function()? errorState,
     required TResult orElse(),
   }) {
