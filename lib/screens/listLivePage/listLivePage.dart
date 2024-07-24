@@ -3,10 +3,8 @@ import 'package:agora/common_widgets/commonWidgets.dart';
 import 'package:agora/common_widgets/toast.dart';
 import 'package:agora/screens/listLivePage/bloc/list_live_bloc.dart';
 import 'package:auto_route/annotations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:questions/openapi.dart';
 @RoutePage()
 class ListLivePage extends StatelessWidget {
