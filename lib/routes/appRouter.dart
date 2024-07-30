@@ -11,6 +11,7 @@ class AppRouter extends $AppRouter{
     AutoRoute(page: LoginRoute.page),
     AutoRoute(page: SuccessLogin.page),
     AutoRoute(page: ListLiveRoute.page),
+    AutoRoute(page: LiveRoute.page),
 
 
   ];
