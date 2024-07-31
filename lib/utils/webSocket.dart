@@ -36,7 +36,6 @@ void webSocketListen({required String sUrl, required String token, required Stri
             String choice = option['choice'];
             print(choice);
           }
-          print("----------------------------------------------------------------------------------");
           print("question: $question");
           //print("id: $id");
          // print("choices: $options");
