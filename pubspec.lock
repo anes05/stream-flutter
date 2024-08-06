@@ -894,6 +894,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  questions_live:
+    dependency: "direct main"
+    description:
+      path: questions-live
+      relative: true
+    source: path
+    version: "1.0.0"
   quiver:
     dependency: transitive
     description:

@@ -9,7 +9,9 @@ class DioSingleton {
   factory DioSingleton() => _instance;
 
   DioSingleton._internal(){
-    _dioInstance.options.baseUrl="http://164.132.53.68:";
+    //_dioInstance.options.baseUrl="http://164.132.53.68:";
+    //10.0.2.2 is the default localhost for android apps
+    _dioInstance.options.baseUrl="http://10.0.2.2:";
 
     _dioInstance.interceptors.add(InterceptorsWrapper(
       onRequest: (options,handler) async {

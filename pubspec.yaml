@@ -36,7 +36,8 @@ dependencies:
   permission_handler: ^10.0.0
   web_socket_channel: ^2.4.0
   hex: ^0.2.0
-
+  questions_live:
+    path: ./questions-live
 
 
 dev_dependencies:

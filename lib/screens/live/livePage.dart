@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:agora/common_widgets/commonWidgets.dart';
+import 'package:agora/screens/live/webSocket/webSocketWidget.dart';
 import 'package:agora/utils/webSocket.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:auto_route/annotations.dart';
@@ -11,8 +14,9 @@ import 'package:permission_handler/permission_handler.dart';
 const appId = "de227b5eaaae4840829264c4c448aad9";
 const token = "007eJxTYJiVGNSWI6a25dunl5PbLxvtq8++7p+olWC766kDxy75/JsKDCmpRkbmSaapiYmJqSYWJgYWRpZGZibJQGhikZiYYqlcujytIZCRYe/vz8yMDBAI4rMwlKQWlzAwAACYZCEN";
 const channel = "test";
-String strUrl = "ws://164.132.53.68:8888/";
-String reciever = 'channel01';
+//const stUrl = "ws://164.132.53.68:8888/";
+const stUrl = "ws://10.0.2.2:8888/";
+const reciever = 'channel01';
 
 
 
@@ -23,16 +27,28 @@ class LivePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: buildAppBar("Live"),
-      body: const Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Expanded(
-            child: BroadcastingWidget(),
-          ),
+      body: const SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+/*            Expanded(
+              child: BroadcastingWidget(),
+            ),*/
+            SizedBox(
+                height: 500,
+                width: 500,
+                child: WebSocketWidget(
+                    sUrl: "ws://10.0.2.2:8888/",
+                    token: "aejùaze",
+                    receiver: "channel01"))
 
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -53,11 +69,11 @@ class _BroadcasterWidgetState extends State<BroadcastingWidget> {
   void initState() {
     super.initState();
     initAgora();
-    webSocketListen(sUrl: strUrl, token: token, receiver: reciever);
+    webSocketListen(sUrl: stUrl, token: token, receiver: reciever);
   }
 
   Future<void> initAgora() async {
-    // retrieve permissions
+    // waiting for permissions ot be granted
     await [Permission.microphone, Permission.camera].request();
 
     //create the engine
