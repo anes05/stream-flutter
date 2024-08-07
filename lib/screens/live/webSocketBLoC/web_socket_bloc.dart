@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:agora/common_widgets/toast.dart';
 import 'package:agora/screens/live/livePage.dart';
+import 'package:agora/screens/live/widgets/broadcastingWidget.dart';
 import 'package:agora/utils/webSocket.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
 part 'web_socket_event.dart';
 
 part 'web_socket_state.dart';
@@ -15,24 +16,65 @@ part 'web_socket_bloc.freezed.dart';
 
 class WebSocketBloc extends Bloc<WebSocketEvent, WebSocketState> {
   WebSocketBloc() : super(const WebSocketState.initial()) {
-    on<_Connect>(_onConnect);
+    on<WebSocketEvent>(_onEvent);
   }
 
-  Future<void> _onConnect(_Connect event, Emitter<WebSocketState> emit) async {
-    emit(const WebSocketState.loading());
-    final data = await webSocketListen(
-      sUrl: event.sUrl,
-      token: event.token,
-      receiver: event.receiver,
-    );
+  Future<void> _onEvent(WebSocketEvent event, Emitter<WebSocketState> emit) async {
+    if (event is _Connect) {
+      emit(const WebSocketState.loading());
+      final stream = webSocketListen(
+        sUrl: event.sUrl,
+        token: event.token,
+        receiver: event.receiver,
+      );
 
-    if (data != null) {
-      emit(WebSocketState.loaded(data));
-    } else {
-      emit(const WebSocketState.error('Error receiving data from WebSocket'));
+      try {
+        await emit.forEach<String?>(
+          stream,
+          onData: (data) {
+            if (data != null) {
+              print("Received data: $data");
+              return WebSocketState.loaded(data); // Pass the data directly
+            } else {
+              return const WebSocketState.error('Error receiving data from WebSocket');
+            }
+          },
+          onError: (error, stackTrace) {
+            print("WebSocket error: $error");
+            return WebSocketState.error('WebSocket error: $error');
+          },
+        );
+      } catch (e) {
+        print("An error occurred: $e");
+        emit(const WebSocketState.error("An error occurred"));
+      }
+    } else if (event is _Reset) {
+      emit(const WebSocketState.initial());
     }
   }
 }
+
+
+  /*Future<void> _onConnect(_Connect event, Emitter<WebSocketState> emit) async {
+    emit(const WebSocketState.loading());
+    try {
+      final data = await webSocketListen(
+        sUrl: event.sUrl,
+        token: event.token,
+        receiver: event.receiver,
+      );
+
+      if (data != null) {
+        emit(WebSocketState.loaded(data));
+      } else {
+        emit(const WebSocketState.error('Error receiving data from WebSocket'));
+      }
+    } on Exception catch (e) {
+      print(e);
+      emit(const WebSocketState.error("there's some error "));
+    }
+  }
+}*/
 
 /*Future<String?> webSocketListen({
   required String sUrl,

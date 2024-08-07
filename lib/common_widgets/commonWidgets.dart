@@ -25,8 +25,9 @@ AppBar buildAppBar(String text){
 Widget pageBody(BuildContext context,String imagePath, String title,String subTitle,String buttonName,void Function()? func){
   return Column(
     children: [
-      const SizedBox(height: 70.0),
+      const SizedBox(height: 50.0),
       imageWidget(imagePath,200.w,200.w),
+      const SizedBox(height: 80.0),
       Text(title,
         textAlign: TextAlign.center,
         style: TextStyle(
@@ -37,7 +38,7 @@ Widget pageBody(BuildContext context,String imagePath, String title,String subTi
       ),
       Container(
         width:375.w,
-        padding: EdgeInsets.only(left: 30.w, right: 30.w,top: 50.h),
+        padding: EdgeInsets.only(left: 30.w, right: 30.w,top: 10.h),
         child: Text(subTitle,
           textAlign: TextAlign.center,
           style: TextStyle(

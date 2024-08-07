@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:agora/common_widgets/commonWidgets.dart';
-import 'package:agora/screens/live/webSocket/webSocketWidget.dart';
+import 'package:agora/screens/live/widgets/broadcastingWidget.dart';
+import 'package:agora/screens/live/widgets/webSocketWidget.dart';
 import 'package:agora/utils/webSocket.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:auto_route/annotations.dart';
@@ -30,145 +31,24 @@ class LivePage extends StatelessWidget {
 
     return Scaffold(
       appBar: buildAppBar("Live"),
-      body: const SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-/*            Expanded(
-              child: BroadcastingWidget(),
-            ),*/
-            SizedBox(
-                height: 500,
-                width: 500,
-                child: WebSocketWidget(
-                    sUrl: "ws://10.0.2.2:8888/",
-                    token: "aejùaze",
-                    receiver: "channel01"))
-
-          ],
-        ),
-      ),
-    );
-  }
-}
-class BroadcastingWidget extends StatefulWidget {
-  const BroadcastingWidget({Key? key}) : super(key: key);
-
-  @override
-  State<BroadcastingWidget> createState() => _BroadcasterWidgetState();
-}
-
-class _BroadcasterWidgetState extends State<BroadcastingWidget> {
-  int? _remoteUid;
-  bool _localUserJoined = false;
-  late RtcEngine _engine;
-
-  @override
-  void initState() {
-    super.initState();
-    initAgora();
-    webSocketListen(sUrl: stUrl, token: token, receiver: reciever);
-  }
-
-  Future<void> initAgora() async {
-    // waiting for permissions ot be granted
-    await [Permission.microphone, Permission.camera].request();
-
-    //create the engine
-    _engine = createAgoraRtcEngine();
-    await _engine.initialize(const RtcEngineContext(
-      appId: appId,
-      channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
-    ));
-
-    _engine.registerEventHandler(
-      RtcEngineEventHandler(
-        onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-          debugPrint("local user ${connection.localUid} joined");
-          setState(() {
-            _localUserJoined = true;
-          });
-        },
-        onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
-          debugPrint("remote user $remoteUid joined");
-          setState(() {
-            _remoteUid = remoteUid;
-          });
-        },
-        onUserOffline: (RtcConnection connection, int remoteUid,
-            UserOfflineReasonType reason) {
-          debugPrint("remote user $remoteUid left channel");
-          setState(() {
-            _remoteUid = null;
-          });
-        },
-        onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
-          debugPrint(
-              '[onTokenPrivilegeWillExpire] connection: ${connection
-                  .toJson()}, token: $token');
-        },
-      ),
-    );
-
-    await _engine.setClientRole(role: ClientRoleType.clientRoleAudience);
-    await _engine.enableVideo();
-    await _engine.startPreview();
-
-    await _engine.joinChannel(
-      token: token,
-      channelId: channel,
-      uid: 0,
-      options: const ChannelMediaOptions(),
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    _dispose();
-  }
-
-  Future<void> _dispose() async {
-    await _engine.leaveChannel();
-    await _engine.release();
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: Center(
-              child: _remoteVideo(),
-            ),
+          const Expanded(
+            child: BroadcastingWidget(),
           ),
+          SizedBox(
+              height: 500,
+              width: 500,
+              child: WebSocketWidget(
+                  sUrl: "ws://10.0.2.2:8888/",
+                  token: "aejùaze",
+                  receiver: "channel01"))
+
         ],
       ),
     );
-  }
-
-  // Display remote user's video
-  Widget _remoteVideo() {
-    if (_remoteUid != null) {
-
-      return AgoraVideoView(
-        controller: VideoViewController.remote(
-          rtcEngine: _engine,
-          canvas: VideoCanvas(uid: _remoteUid),
-          connection: const RtcConnection(channelId: channel),
-        ),
-      );
-    } else {
-      return const Text(
-        'Waiting for broadcaster to start!',
-        textAlign: TextAlign.center,
-      );
-    }
   }
 }
 

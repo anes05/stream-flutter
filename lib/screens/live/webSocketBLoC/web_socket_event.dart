@@ -7,4 +7,6 @@ class WebSocketEvent with _$WebSocketEvent {
     required String token,
     required String receiver,
   }) = _Connect;
+  const factory WebSocketEvent.reset() = _Reset;
+
 }

@@ -1,8 +1,51 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-Future<String?> webSocketListen({
+Stream<String?> webSocketListen({
+  required String sUrl,
+  required String token,
+  required String receiver,
+}) {
+  final wsUrl = "$sUrl?token=$token&store=$receiver";
+  final controller = StreamController<String?>.broadcast();
+
+  try {
+    final channel = WebSocketChannel.connect(Uri.parse(wsUrl));
+    channel.stream.listen(
+          (message) {
+        try {
+          if (message is List<int>) {
+            final decodedMessage = utf8.decode(message);
+            controller.add(decodedMessage);
+          } else {
+            print("Received non-byte message: $message");
+          }
+        } catch (e) {
+          print("Error decoding message: $e");
+          controller.addError(e);
+        }
+      },
+      onError: (error) {
+        print("WebSocket error: $error");
+        controller.addError(error);
+      },
+      onDone: () {
+        print("WebSocket connection closed");
+        controller.close();
+      },
+    );
+  } catch (e) {
+    print("Error connecting to WebSocket: $e");
+    controller.addError(e);
+    controller.close();
+  }
+
+  return controller.stream;
+}
+
+/*Future<String?> webSocketListen({
   required String sUrl,
   required String token,
   required String receiver,
@@ -58,7 +101,7 @@ Future<String?> webSocketListen({
     print("WebSocket error: $error");
   }
   return null;
-}
+}*/
 
 /*void webSocketListen({
   required String sUrl,

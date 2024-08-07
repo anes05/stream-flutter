@@ -16,45 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$WebSocketEvent {
-  String get sUrl => throw _privateConstructorUsedError;
-  String get token => throw _privateConstructorUsedError;
-  String get receiver => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String sUrl, String token, String receiver)
         connect,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String sUrl, String token, String receiver)? connect,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String sUrl, String token, String receiver)? connect,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Connect value) connect,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Connect value)? connect,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Connect value)? connect,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $WebSocketEventCopyWith<WebSocketEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,8 +62,6 @@ abstract class $WebSocketEventCopyWith<$Res> {
   factory $WebSocketEventCopyWith(
           WebSocketEvent value, $Res Function(WebSocketEvent) then) =
       _$WebSocketEventCopyWithImpl<$Res, WebSocketEvent>;
-  @useResult
-  $Res call({String sUrl, String token, String receiver});
 }
 
 /// @nodoc
@@ -76,38 +73,13 @@ class _$WebSocketEventCopyWithImpl<$Res, $Val extends WebSocketEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? sUrl = null,
-    Object? token = null,
-    Object? receiver = null,
-  }) {
-    return _then(_value.copyWith(
-      sUrl: null == sUrl
-          ? _value.sUrl
-          : sUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      receiver: null == receiver
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ConnectImplCopyWith<$Res>
-    implements $WebSocketEventCopyWith<$Res> {
+abstract class _$$ConnectImplCopyWith<$Res> {
   factory _$$ConnectImplCopyWith(
           _$ConnectImpl value, $Res Function(_$ConnectImpl) then) =
       __$$ConnectImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String sUrl, String token, String receiver});
 }
@@ -187,6 +159,7 @@ class _$ConnectImpl implements _Connect {
   TResult when<TResult extends Object?>({
     required TResult Function(String sUrl, String token, String receiver)
         connect,
+    required TResult Function() reset,
   }) {
     return connect(sUrl, token, receiver);
   }
@@ -195,6 +168,7 @@ class _$ConnectImpl implements _Connect {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String sUrl, String token, String receiver)? connect,
+    TResult? Function()? reset,
   }) {
     return connect?.call(sUrl, token, receiver);
   }
@@ -203,6 +177,7 @@ class _$ConnectImpl implements _Connect {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String sUrl, String token, String receiver)? connect,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -215,6 +190,7 @@ class _$ConnectImpl implements _Connect {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Connect value) connect,
+    required TResult Function(_Reset value) reset,
   }) {
     return connect(this);
   }
@@ -223,6 +199,7 @@ class _$ConnectImpl implements _Connect {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Connect value)? connect,
+    TResult? Function(_Reset value)? reset,
   }) {
     return connect?.call(this);
   }
@@ -231,6 +208,7 @@ class _$ConnectImpl implements _Connect {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Connect value)? connect,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -246,16 +224,115 @@ abstract class _Connect implements WebSocketEvent {
       required final String token,
       required final String receiver}) = _$ConnectImpl;
 
-  @override
   String get sUrl;
-  @override
   String get token;
-  @override
   String get receiver;
-  @override
   @JsonKey(ignore: true)
   _$$ConnectImplCopyWith<_$ConnectImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetImplCopyWith<$Res> {
+  factory _$$ResetImplCopyWith(
+          _$ResetImpl value, $Res Function(_$ResetImpl) then) =
+      __$$ResetImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetImplCopyWithImpl<$Res>
+    extends _$WebSocketEventCopyWithImpl<$Res, _$ResetImpl>
+    implements _$$ResetImplCopyWith<$Res> {
+  __$$ResetImplCopyWithImpl(
+      _$ResetImpl _value, $Res Function(_$ResetImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResetImpl implements _Reset {
+  const _$ResetImpl();
+
+  @override
+  String toString() {
+    return 'WebSocketEvent.reset()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String sUrl, String token, String receiver)
+        connect,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String sUrl, String token, String receiver)? connect,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String sUrl, String token, String receiver)? connect,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Connect value) connect,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Connect value)? connect,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Connect value)? connect,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements WebSocketEvent {
+  const factory _Reset() = _$ResetImpl;
 }
 
 /// @nodoc
@@ -264,7 +341,7 @@ mixin _$WebSocketState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? data) loaded,
+    required TResult Function(String data) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -272,7 +349,7 @@ mixin _$WebSocketState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String? data)? loaded,
+    TResult? Function(String data)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -280,7 +357,7 @@ mixin _$WebSocketState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? data)? loaded,
+    TResult Function(String data)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -370,7 +447,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? data) loaded,
+    required TResult Function(String data) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -381,7 +458,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String? data)? loaded,
+    TResult? Function(String data)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -392,7 +469,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? data)? loaded,
+    TResult Function(String data)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -484,7 +561,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? data) loaded,
+    required TResult Function(String data) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -495,7 +572,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String? data)? loaded,
+    TResult? Function(String data)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -506,7 +583,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? data)? loaded,
+    TResult Function(String data)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -564,7 +641,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? data});
+  $Res call({String data});
 }
 
 /// @nodoc
@@ -578,13 +655,13 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$LoadedImpl(
-      freezed == data
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -595,7 +672,7 @@ class _$LoadedImpl implements _Loaded {
   const _$LoadedImpl(this.data);
 
   @override
-  final String? data;
+  final String data;
 
   @override
   String toString() {
@@ -624,7 +701,7 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? data) loaded,
+    required TResult Function(String data) loaded,
     required TResult Function(String message) error,
   }) {
     return loaded(data);
@@ -635,7 +712,7 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String? data)? loaded,
+    TResult? Function(String data)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loaded?.call(data);
@@ -646,7 +723,7 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? data)? loaded,
+    TResult Function(String data)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -695,9 +772,9 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements WebSocketState {
-  const factory _Loaded(final String? data) = _$LoadedImpl;
+  const factory _Loaded(final String data) = _$LoadedImpl;
 
-  String? get data;
+  String get data;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -769,7 +846,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String? data) loaded,
+    required TResult Function(String data) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -780,7 +857,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String? data)? loaded,
+    TResult? Function(String data)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -791,7 +868,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String? data)? loaded,
+    TResult Function(String data)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
