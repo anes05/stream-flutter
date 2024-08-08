@@ -6,7 +6,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 
 const appId = "de227b5eaaae4840829264c4c448aad9";
-const token = "007eJxTYJiVGNSWI6a25dunl5PbLxvtq8++7p+olWC766kDxy75/JsKDCmpRkbmSaapiYmJqSYWJgYWRpZGZibJQGhikZiYYqlcujytIZCRYe/vz8yMDBAI4rMwlKQWlzAwAACYZCEN";
+const token = "007eJxTYChvE99beHGq9sWg/7Wr0uU+On5KVj8cGL6k/9zT6PbNxc8UGFJSjYzMk0xTExMTU00sTAwsjCyNzEySgdDEIjExxbKwY0taQyAjw3ILUVZGBggE8VkYSlKLSxgYAOTdITc=";
 const channel = "test";
 //const stUrl = "ws://164.132.53.68:8888/";
 const stUrl = "ws://10.0.2.2:8888/";
@@ -99,9 +99,9 @@ class _BroadcasterWidgetState extends State<BroadcastingWidget> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
+          SizedBox(
+            height:MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             child: Center(
               child: _remoteVideo(),
             ),

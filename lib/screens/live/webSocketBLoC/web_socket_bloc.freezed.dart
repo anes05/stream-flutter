@@ -364,26 +364,26 @@ mixin _$WebSocketState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(WebSocketStateInitial value) initial,
+    required TResult Function(WebSocketStateLoading value) loading,
+    required TResult Function(WebSocketStateLoaded value) loaded,
+    required TResult Function(WebSocketStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(WebSocketStateInitial value)? initial,
+    TResult? Function(WebSocketStateLoading value)? loading,
+    TResult? Function(WebSocketStateLoaded value)? loaded,
+    TResult? Function(WebSocketStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(WebSocketStateInitial value)? initial,
+    TResult Function(WebSocketStateLoading value)? loading,
+    TResult Function(WebSocketStateLoaded value)? loaded,
+    TResult Function(WebSocketStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -408,25 +408,26 @@ class _$WebSocketStateCopyWithImpl<$Res, $Val extends WebSocketState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$WebSocketStateInitialImplCopyWith<$Res> {
+  factory _$$WebSocketStateInitialImplCopyWith(
+          _$WebSocketStateInitialImpl value,
+          $Res Function(_$WebSocketStateInitialImpl) then) =
+      __$$WebSocketStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$WebSocketStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$WebSocketStateInitialImplCopyWithImpl<$Res>
+    extends _$WebSocketStateCopyWithImpl<$Res, _$WebSocketStateInitialImpl>
+    implements _$$WebSocketStateInitialImplCopyWith<$Res> {
+  __$$WebSocketStateInitialImplCopyWithImpl(_$WebSocketStateInitialImpl _value,
+      $Res Function(_$WebSocketStateInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$WebSocketStateInitialImpl implements WebSocketStateInitial {
+  const _$WebSocketStateInitialImpl();
 
   @override
   String toString() {
@@ -436,7 +437,8 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$WebSocketStateInitialImpl);
   }
 
   @override
@@ -482,10 +484,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(WebSocketStateInitial value) initial,
+    required TResult Function(WebSocketStateLoading value) loading,
+    required TResult Function(WebSocketStateLoaded value) loaded,
+    required TResult Function(WebSocketStateError value) error,
   }) {
     return initial(this);
   }
@@ -493,10 +495,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(WebSocketStateInitial value)? initial,
+    TResult? Function(WebSocketStateLoading value)? loading,
+    TResult? Function(WebSocketStateLoaded value)? loaded,
+    TResult? Function(WebSocketStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -504,10 +506,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(WebSocketStateInitial value)? initial,
+    TResult Function(WebSocketStateLoading value)? loading,
+    TResult Function(WebSocketStateLoaded value)? loaded,
+    TResult Function(WebSocketStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -517,30 +519,31 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements WebSocketState {
-  const factory _Initial() = _$InitialImpl;
+abstract class WebSocketStateInitial implements WebSocketState {
+  const factory WebSocketStateInitial() = _$WebSocketStateInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$WebSocketStateLoadingImplCopyWith<$Res> {
+  factory _$$WebSocketStateLoadingImplCopyWith(
+          _$WebSocketStateLoadingImpl value,
+          $Res Function(_$WebSocketStateLoadingImpl) then) =
+      __$$WebSocketStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$WebSocketStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$WebSocketStateLoadingImplCopyWithImpl<$Res>
+    extends _$WebSocketStateCopyWithImpl<$Res, _$WebSocketStateLoadingImpl>
+    implements _$$WebSocketStateLoadingImplCopyWith<$Res> {
+  __$$WebSocketStateLoadingImplCopyWithImpl(_$WebSocketStateLoadingImpl _value,
+      $Res Function(_$WebSocketStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
+class _$WebSocketStateLoadingImpl implements WebSocketStateLoading {
+  const _$WebSocketStateLoadingImpl();
 
   @override
   String toString() {
@@ -550,7 +553,8 @@ class _$LoadingImpl implements _Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$WebSocketStateLoadingImpl);
   }
 
   @override
@@ -596,10 +600,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(WebSocketStateInitial value) initial,
+    required TResult Function(WebSocketStateLoading value) loading,
+    required TResult Function(WebSocketStateLoaded value) loaded,
+    required TResult Function(WebSocketStateError value) error,
   }) {
     return loading(this);
   }
@@ -607,10 +611,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(WebSocketStateInitial value)? initial,
+    TResult? Function(WebSocketStateLoading value)? loading,
+    TResult? Function(WebSocketStateLoaded value)? loaded,
+    TResult? Function(WebSocketStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -618,10 +622,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(WebSocketStateInitial value)? initial,
+    TResult Function(WebSocketStateLoading value)? loading,
+    TResult Function(WebSocketStateLoaded value)? loaded,
+    TResult Function(WebSocketStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -631,25 +635,25 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements WebSocketState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class WebSocketStateLoading implements WebSocketState {
+  const factory WebSocketStateLoading() = _$WebSocketStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+abstract class _$$WebSocketStateLoadedImplCopyWith<$Res> {
+  factory _$$WebSocketStateLoadedImplCopyWith(_$WebSocketStateLoadedImpl value,
+          $Res Function(_$WebSocketStateLoadedImpl) then) =
+      __$$WebSocketStateLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$WebSocketStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$WebSocketStateLoadedImplCopyWithImpl<$Res>
+    extends _$WebSocketStateCopyWithImpl<$Res, _$WebSocketStateLoadedImpl>
+    implements _$$WebSocketStateLoadedImplCopyWith<$Res> {
+  __$$WebSocketStateLoadedImplCopyWithImpl(_$WebSocketStateLoadedImpl _value,
+      $Res Function(_$WebSocketStateLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -657,7 +661,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$LoadedImpl(
+    return _then(_$WebSocketStateLoadedImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -668,8 +672,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(this.data);
+class _$WebSocketStateLoadedImpl implements WebSocketStateLoaded {
+  const _$WebSocketStateLoadedImpl(this.data);
 
   @override
   final String data;
@@ -683,7 +687,7 @@ class _$LoadedImpl implements _Loaded {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
+            other is _$WebSocketStateLoadedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -693,8 +697,10 @@ class _$LoadedImpl implements _Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+  _$$WebSocketStateLoadedImplCopyWith<_$WebSocketStateLoadedImpl>
+      get copyWith =>
+          __$$WebSocketStateLoadedImplCopyWithImpl<_$WebSocketStateLoadedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -736,10 +742,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(WebSocketStateInitial value) initial,
+    required TResult Function(WebSocketStateLoading value) loading,
+    required TResult Function(WebSocketStateLoaded value) loaded,
+    required TResult Function(WebSocketStateError value) error,
   }) {
     return loaded(this);
   }
@@ -747,10 +753,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(WebSocketStateInitial value)? initial,
+    TResult? Function(WebSocketStateLoading value)? loading,
+    TResult? Function(WebSocketStateLoaded value)? loaded,
+    TResult? Function(WebSocketStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -758,10 +764,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(WebSocketStateInitial value)? initial,
+    TResult Function(WebSocketStateLoading value)? loading,
+    TResult Function(WebSocketStateLoaded value)? loaded,
+    TResult Function(WebSocketStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -771,30 +777,31 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements WebSocketState {
-  const factory _Loaded(final String data) = _$LoadedImpl;
+abstract class WebSocketStateLoaded implements WebSocketState {
+  const factory WebSocketStateLoaded(final String data) =
+      _$WebSocketStateLoadedImpl;
 
   String get data;
   @JsonKey(ignore: true)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WebSocketStateLoadedImplCopyWith<_$WebSocketStateLoadedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$WebSocketStateErrorImplCopyWith<$Res> {
+  factory _$$WebSocketStateErrorImplCopyWith(_$WebSocketStateErrorImpl value,
+          $Res Function(_$WebSocketStateErrorImpl) then) =
+      __$$WebSocketStateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$WebSocketStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$WebSocketStateErrorImplCopyWithImpl<$Res>
+    extends _$WebSocketStateCopyWithImpl<$Res, _$WebSocketStateErrorImpl>
+    implements _$$WebSocketStateErrorImplCopyWith<$Res> {
+  __$$WebSocketStateErrorImplCopyWithImpl(_$WebSocketStateErrorImpl _value,
+      $Res Function(_$WebSocketStateErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -802,7 +809,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ErrorImpl(
+    return _then(_$WebSocketStateErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -813,8 +820,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.message);
+class _$WebSocketStateErrorImpl implements WebSocketStateError {
+  const _$WebSocketStateErrorImpl(this.message);
 
   @override
   final String message;
@@ -828,7 +835,7 @@ class _$ErrorImpl implements _Error {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
+            other is _$WebSocketStateErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -838,8 +845,9 @@ class _$ErrorImpl implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+  _$$WebSocketStateErrorImplCopyWith<_$WebSocketStateErrorImpl> get copyWith =>
+      __$$WebSocketStateErrorImplCopyWithImpl<_$WebSocketStateErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -881,10 +889,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(WebSocketStateInitial value) initial,
+    required TResult Function(WebSocketStateLoading value) loading,
+    required TResult Function(WebSocketStateLoaded value) loaded,
+    required TResult Function(WebSocketStateError value) error,
   }) {
     return error(this);
   }
@@ -892,10 +900,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(WebSocketStateInitial value)? initial,
+    TResult? Function(WebSocketStateLoading value)? loading,
+    TResult? Function(WebSocketStateLoaded value)? loaded,
+    TResult? Function(WebSocketStateError value)? error,
   }) {
     return error?.call(this);
   }
@@ -903,10 +911,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(WebSocketStateInitial value)? initial,
+    TResult Function(WebSocketStateLoading value)? loading,
+    TResult Function(WebSocketStateLoaded value)? loaded,
+    TResult Function(WebSocketStateError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -916,11 +924,12 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements WebSocketState {
-  const factory _Error(final String message) = _$ErrorImpl;
+abstract class WebSocketStateError implements WebSocketState {
+  const factory WebSocketStateError(final String message) =
+      _$WebSocketStateErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+  _$$WebSocketStateErrorImplCopyWith<_$WebSocketStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

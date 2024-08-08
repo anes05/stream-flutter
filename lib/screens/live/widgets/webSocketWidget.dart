@@ -27,56 +27,76 @@ class WebSocketWidget extends StatelessWidget {
           token: token,
           receiver: receiver,
         )),
-      child: Scaffold(
-        body: BlocConsumer<WebSocketBloc, WebSocketState>(
-          listener: (context, state) {
-            state.maybeWhen(
-              loaded: (data) {
-                Future.delayed(const Duration(seconds: 10), () {
-                  BlocProvider.of<WebSocketBloc>(context).add(const WebSocketEvent.reset());
-                });
-              },
-              orElse: () {},
-            );
-          },
-          builder: (context, state) {
-            return state.map(
-              initial: (_) => const SizedBox.shrink(),
-              loading: (_) => _buildCard(child: const Center(child: CircularProgressIndicator())),
-              loaded: (state) {
-                final data = state.data;
-                final jsonData = jsonDecode(data);
-                return _buildCard(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Question: ${jsonData['question']['question']}'),
-                        ...jsonData['question']['options'].map<Widget>(
-                              (option) => Text('Option: ${option['choice']}'),
-                        ),
-                      ],
-                    ),
+      child: BlocConsumer<WebSocketBloc, WebSocketState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            loaded: (data) {
+              Future.delayed(const Duration(seconds: 10), () {
+                BlocProvider.of<WebSocketBloc>(context).add(const WebSocketEvent.reset());
+              });
+            },
+            orElse: () {},
+          );
+        },
+        builder: (context, state) {
+          return state.map(
+            initial: (_) => const Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: 200,
+                height: 200,
+              ),
+            ),
+            loading: (_) => const Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: 200,
+                height: 200,
+              ),
+            ),
+            loaded: (state) {
+              final data = state.data;
+              final jsonData = jsonDecode(data);
+              return _buildCard(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Question: ${jsonData['question']['question']}',
+                        textAlign: TextAlign.justify,),
+                      ...jsonData['question']['options'].map<Widget>(
+                            (option) => Text('Option: ${option['choice']}'),
+                      ),
+                    ],
                   ),
-                );
-              },
-              error: (state) => _buildCard(child: Center(child: Text('Error: ${state.message}'))),
-            );
-          },
-        ),
+                ),
+                  context: context
+              );
+            },
+            error: (state) => _buildCard(child: Text('Error: ${state.message}'),context: context),
+          );
+        },
       ),
     );
   }
 
-  Widget _buildCard({required Widget child}) {
-    return Card(
-      margin: const EdgeInsets.all(16.0),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: child,
-      ),
+  Widget _buildCard({required Widget child, required BuildContext context}) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        margin: EdgeInsets.all(20.0),
+          height: 150,
+          width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          color: Colors.red,
+        ),
+          child: child,
+        ),
     );
+
   }
 }
 

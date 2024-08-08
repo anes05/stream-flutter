@@ -23,9 +23,9 @@ class WebSocketBloc extends Bloc<WebSocketEvent, WebSocketState> {
     if (event is _Connect) {
       emit(const WebSocketState.loading());
       final stream = webSocketListen(
-        sUrl: event.sUrl,
-        token: event.token,
-        receiver: event.receiver,
+        sUrl: "ws://164.132.54.71:8888/",
+        token: "007eJxTYJiVGNSWI6a25dunl5PbLxvtq8++7p+olWC766kDxy75/JsKDCmpRkbmSaapiYmJqSYWJgYWRpZGZibJQGhikZiYYqlcujytIZCRYe/vz8yMDBAI4rMwlKQWlzAwAACYZCEN",
+        receiver: "channel01",
       );
 
       try {
@@ -34,7 +34,7 @@ class WebSocketBloc extends Bloc<WebSocketEvent, WebSocketState> {
           onData: (data) {
             if (data != null) {
               print("Received data: $data");
-              return WebSocketState.loaded(data); // Pass the data directly
+              return WebSocketState.loaded(data);
             } else {
               return const WebSocketState.error('Error receiving data from WebSocket');
             }

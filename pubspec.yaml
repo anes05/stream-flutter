@@ -38,6 +38,7 @@ dependencies:
   hex: ^0.2.0
   questions_live:
     path: ./questions-live
+  provider: ^6.1.2
 
 
 dev_dependencies:

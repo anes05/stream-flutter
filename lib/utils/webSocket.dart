@@ -19,6 +19,7 @@ Stream<String?> webSocketListen({
           if (message is List<int>) {
             final decodedMessage = utf8.decode(message);
             controller.add(decodedMessage);
+            print("Received message: $decodedMessage");
           } else {
             print("Received non-byte message: $message");
           }
@@ -44,6 +45,7 @@ Stream<String?> webSocketListen({
 
   return controller.stream;
 }
+
 
 /*Future<String?> webSocketListen({
   required String sUrl,
